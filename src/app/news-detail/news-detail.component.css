@@ -1,0 +1,92 @@
+* {
+  font-family: myFont2;
+}
+
+img {
+  width: 100%;
+}
+
+.link-style {
+  color: darkred;
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.link-style:hover {
+  border-color: darkred;
+}
+
+.edit, .delete {
+   margin: 20px 10px;
+   font-size: 12px;
+   font-weight: bold;
+   text-decoration: underline;
+   color: darkgreen;
+   cursor: pointer;
+   transition: 0.5s;
+ }
+
+.edit {
+  color: darkslateblue;
+}
+
+.delete {
+  color: indianred;
+}
+
+.edit:hover, .delete:hover {
+  color: darkred;
+}
+
+div>div {
+  display: flex;
+  justify-content: space-between;
+}
+
+div p {
+  margin: 0 0 25px;
+}
+
+input, select {
+  margin-bottom: 20px;
+}
+
+input[type=text], input[type=file], textarea, select {
+  padding: 8px 15px;
+  width: 220px;
+  box-sizing: border-box;
+  background-color: rgba(250, 235, 215, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0);
+  color: darkred;
+  outline: none;
+}
+
+input[type=text]:focus, textarea:focus {
+  border-bottom: 2px solid darkred;
+}
+
+label p {
+  margin-bottom: 5px;
+}
+
+textarea {
+  resize: vertical;
+  width: 400px;
+  height: 250px;
+  margin-bottom: 30px;
+}
+
+#add, #add-valid {
+  padding: 10px;
+  font-size: 1em;
+  width: 100%;
+  border: 2px solid rgba(250, 235, 215, 0.5);
+  background: none;
+  transition: 0.7s;
+}
+
+#add-valid:hover {
+  border-color: darkred;
+  cursor: pointer;
+}

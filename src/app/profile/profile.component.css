@@ -1,0 +1,89 @@
+* {
+  font-family: myFont2;
+}
+
+.article {
+  display: flex;
+  margin-bottom: 20px;
+  border-left: 2px solid rgba(255, 255, 255, 0);
+  padding: 5px;
+  transition: 0.7s;
+}
+
+.article:hover {
+  border-left: 2px solid darkred;
+}
+
+.article>:nth-child(1) {
+  width: 180px;
+  margin-right: 15px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  transition: 0.7s;
+}
+
+img:hover {
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
+hr {
+  border-color: darkred;
+}
+
+h3 {
+  transition: 0.7s;
+}
+
+.profile-article h3:hover {
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.category {
+  color: darkred;
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
+  cursor: pointer;
+  transition: 0.7s;
+}
+
+.category:hover {
+  border-color: darkred;
+}
+
+.banMessage {
+  color: darkred;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+}
+
+button {
+  padding: 5px 15px;
+  font-size: 0.7em;
+  font-weight: bold;
+  border: 2px solid rgba(250, 235, 215, 0.5);
+  background-color: rgba(225, 196, 159, 0.5);
+  margin-right: 10px;
+  transition: 0.7s;
+}
+
+button:hover {
+  border-color: darkred;
+  cursor: pointer;
+}
+
+.modBtn {
+  color: darkslateblue;
+}
+
+.banBtn {
+  color: rgb(170, 126, 45);
+}
+
+.delBtn {
+  color: darkred;
+}

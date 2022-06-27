@@ -1,0 +1,97 @@
+* {
+  font-family: myFont2;
+  letter-spacing: -0.05em;
+  box-sizing: border-box;
+}
+
+.news-elements {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.news-element {
+  width: 20%;
+  display: inline-block;
+  border: 2px solid rgba(255, 255, 255, 0);
+  padding: 5px;
+  transition: 0.7s;
+}
+
+.news-element:hover {
+  border: 2px solid darkred;
+}
+
+h1 {
+  font-family: "myFont";
+  text-align: center;
+}
+
+hr {
+  border-color: darkred;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  transition: 0.7s;
+}
+
+img:hover {
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
+h3 {
+  transition: 0.7s;
+}
+
+h3:hover {
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.news-element div {
+  height: 150px;
+  transition: 0.7s;
+}
+
+.news-element span {
+  color: darkred;
+}
+
+.news-element span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.log-reg {
+  float: right;
+}
+
+a {
+  text-decoration: underline;
+  font-size: 12px;
+  color: darkgreen;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+a:hover, .profile:hover {
+  color: darkred;
+}
+
+.logged-in {
+  font-size: 12px;
+}
+
+.profile {
+  color: darkslateblue;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.name {
+  font-weight: bold;
+}

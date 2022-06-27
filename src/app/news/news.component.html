@@ -1,0 +1,63 @@
+<hr />
+<h1>Great News Global</h1>
+<hr />
+
+<p *ngIf="!loggedIn" class="log-reg"><a [routerLink]="['login']">Login</a> / <a [routerLink]="['register']">Register</a></p>
+<p *ngIf="loggedIn" class="log-reg">
+  <span class="logged-in">Welcome, <span class="name">{{user.username}}</span>!</span> |
+  <a [routerLink]="['profile', user._id]" class="logged-in profile">Profile</a> |
+  <a (click)="logout()">Logout</a>
+</p>
+
+<main>
+  <div class="news-section">
+    <div *ngFor="let c of categories; let i = index">
+      <h2>{{c}}
+        <span *ngIf="loggedIn && mayWrite" class="write-article"> >
+          <a [routerLink]="['-1']">Write an article</a>
+        </span>
+      </h2>
+      <div *ngIf="!isLoading" class="news-elements">
+        <div *ngFor="let n of newsWithUsername | fromCategory: 'category' : c | sorting : 'timestamp'; let i = index" class="news-element">
+          <div (click)="goToNews(n._id)">
+            <img src="/../../assets/{{n.photo}}">
+          </div>
+          <h3 (click)="goToNews(n._id)">{{n.title}}</h3>
+          <p><span (click)="goToProfile(n.author)">{{n.username}}</span>, {{n.timestamp | date : 'dd. MMM yyyy. HH:mm'}}</p>
+          <p>{{n.summary}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="weather-exchange">
+
+    <div class="weather">
+      <div>
+        <span>{{city.temperature}}°C</span>
+        <img src="{{weatherIcon}}" title="{{weatherMain}} - {{weatherDesc}}" />
+      </div>
+      <p>{{city.name}}, {{city.country}}</p>
+    </div>
+
+    <hr />
+
+    <div *ngIf="allRetrieved" class="exchange">
+      <table>
+        <tr *ngFor="let price of allPrices | sorting : 'amount'; let i = index">
+          <td>{{price.base}} ({{price.currency}}) : </td>
+          <td>{{price.amount}}</td>
+        </tr>
+      </table>
+      <em>Data retrieved at: {{timeData}}</em><br />
+      <label for="curr">
+        <input type="text" name="curr" [(ngModel)]=currency placeholder="example: USD / EUR / GBP / HRK" />
+        <br />
+        <strong>{{errorMsg}}</strong>
+      </label>
+      <button (click)="getCryptoValues()">CHANGE CURRENCY</button>
+    </div>
+
+
+  </div>
+</main>

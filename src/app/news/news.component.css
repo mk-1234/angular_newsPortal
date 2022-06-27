@@ -1,0 +1,189 @@
+* {
+  font-family: myFont2;
+  letter-spacing: -0.05em;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: flex;
+}
+
+.news-section {
+  width: 80%;
+}
+
+.news-elements {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.news-element {
+  width: 25%;
+  display: inline-block;
+  border: 2px solid rgba(255, 255, 255, 0);
+  padding: 5px;
+  transition: 0.7s;
+}
+
+.news-element:hover {
+  border: 2px solid darkred;
+}
+
+h1 {
+  font-family: "myFont";
+  text-align: center;
+}
+
+hr {
+  border-color: darkred;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  transition: 0.7s;
+}
+
+img:hover {
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
+h3 {
+  transition: 0.7s;
+}
+
+h3:hover {
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.news-element div {
+  height: 150px;
+  transition: 0.7s;
+}
+
+.news-element span {
+  color: darkred;
+}
+
+.news-element span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.log-reg {
+  text-align: right;
+}
+
+a {
+  text-decoration: underline;
+  font-size: 12px;
+  color: darkgreen;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+a:hover, .profile:hover {
+  color: darkred;
+}
+
+.logged-in {
+  font-size: 12px;
+}
+
+.profile {
+  color: darkslateblue;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.weather-exchange {
+  width: 20%;
+}
+
+.weather {
+  text-align: right;
+  font-size: 0.8em;
+}
+
+.weather img {
+  width: 40px;
+}
+
+.weather div {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.weather p {
+  margin-top: 0px;
+}
+
+.exchange {
+  margin: 20px 0 0 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.exchange em {
+  font-size: 0.6em;
+}
+
+.exchange table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 0.8em;
+}
+
+.exchange td {
+  border-bottom: 1px solid darkgreen;
+  padding: 7px 15px;
+}
+
+.exchange label {
+  display: block;
+  margin: 20px 0 15px;
+  font-size: 0.8em;
+}
+
+.exchange input {
+  width: 100%;
+  background-color: rgba(250, 235, 215, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0);
+  padding: 7px 15px;
+  margin-right: 30px;
+  font-size: 0.8em;
+}
+
+.exchange button {
+  padding: 10px;
+  font-size: 0.8em;
+  width: 100%;
+  border: 2px solid rgba(250, 235, 215, 0.5);
+  background: none;
+  background-color: rgba(250, 235, 215, 0.5);
+  color: #a86a1d;
+  transition: 0.7s;
+}
+
+.exchange button:hover {
+  border-color: #a86a1d;
+}
+
+.exchange strong {
+  color: darkred;
+  font-size: 0.8em;
+}

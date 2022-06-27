@@ -1,0 +1,70 @@
+* {
+  font-family: myFont2;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type=text], input[type=password], input[type=email] {
+  padding: 8px 15px;
+  width: 250px;
+  box-sizing: border-box;
+  background-color: rgba(225, 196, 159, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0);
+  color: darkred;
+  outline: none;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+  border-bottom: 2px solid darkred;
+}
+
+label p {
+  margin-bottom: 5px;
+  font-size: 0.8em;
+}
+
+#reg, #reg-valid {
+  padding: 10px;
+  font-size: 1em;
+  width: 250px;
+  border: 2px solid rgba(225, 196, 159, 0.5);
+  background: none;
+  transition: 0.7s;
+}
+
+#reg-valid:hover {
+  border-color: darkred;
+  cursor: pointer;
+}
+
+span {
+  color: darkred;
+  margin-left: 30px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+a {
+  color: darkblue;
+  font-size: 0.7em;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  width: 250px;
+  text-align: center;
+  padding-bottom: 10px;
+  transition: 0.7s;
+}
+
+a:hover {
+  border-color: darkblue;
+}
+
+.error-msg {
+  font-size: 0.7em;
+  color: darkred;
+  font-weight: bold;
+}

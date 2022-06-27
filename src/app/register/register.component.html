@@ -1,0 +1,47 @@
+<h2>Register form</h2>
+<form [formGroup]="registerForm" (submit)="onSubmit()">
+  <label for="username">
+    <p>Username</p>
+    <input type="text" id="username" formControlName="username" placeholder="Enter your username" />
+    <span *ngIf="registerForm.controls['username'].status != 'VALID' && !registerForm.controls['username'].pristine">
+    Please enter your username, it needs to be at least 3 letters long!</span>
+  </label>
+  <label for="password">
+    <p>Password</p>
+    <input type="password" id="password" formControlName="password" placeholder="Enter your password" />
+    <span *ngIf="registerForm.controls['password'].status != 'VALID' && !registerForm.controls['password'].pristine">
+      Please enter your password!</span>
+    <span *ngIf="wrongPass">Both passwords must be equal!</span>
+  </label>
+  <label for="repeat-password">
+    <p>Repeat Password</p>
+    <input type="password" id="repeat-password" formControlName="repeat-password" placeholder="Repeat password" />
+    <span *ngIf="registerForm.controls['repeat-password'].status != 'VALID' && !registerForm.controls['repeat-password'].pristine">
+      Please repeat your password!</span>
+    <span *ngIf="wrongPass">Both passwords must be equal!</span>
+  </label>
+  <label for="first-name">
+    <p>First name</p>
+    <input type="text" id="first-name" formControlName="first-name" placeholder="Enter your first name" />
+    <span *ngIf="registerForm.controls['first-name'].status != 'VALID' && !registerForm.controls['first-name'].pristine">
+      Please enter your first name!</span>
+  </label>
+  <label for="last-name">
+    <p>Last name</p>
+    <input type="text" id="last-name" formControlName="last-name" placeholder="Enter your last name" />
+    <span *ngIf="registerForm.controls['last-name'].status != 'VALID' && !registerForm.controls['last-name'].pristine">
+      Please enter your last name!</span>
+  </label>
+  <label for="email">
+    <p>E-mail</p>
+    <input type="email" id="email" formControlName="email" placeholder="example@example.com" />
+    <span *ngIf="registerForm.controls['email'].status != 'VALID' && !registerForm.controls['email'].pristine">
+      Please enter your email in the correct format!</span>
+  </label>
+  <br />
+  <p class="error-msg">{{errorMsg}}</p>
+  <input id="reg-valid" type="submit" value="Register" [ngStyle]="setClass()" />
+  <br />
+  <a [routerLink]="['../login']"><< Back to login form</a>
+</form>
+

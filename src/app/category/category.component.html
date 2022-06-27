@@ -1,0 +1,28 @@
+<hr />
+<h1>Great News Global</h1>
+<hr />
+
+<p *ngIf="!loggedIn" class="log-reg"><a [routerLink]="['../../login']">Login</a> / <a [routerLink]="['../../register']">Register</a></p>
+<p *ngIf="loggedIn" class="log-reg">
+  <span class="logged-in">Welcome, <span class="name">{{user.username}}</span>!</span> |
+  <a [routerLink]="['../../profile', user._id]" class="logged-in profile">Profile</a> |
+  <a (click)="logout()">Logout</a>
+</p>
+
+<div class="news-section">
+  <h2>{{category}}
+    <span *ngIf="loggedIn && mayWrite" class="write-article"> >
+      <a [routerLink]="['../../-1']">Write an article</a>
+    </span>
+  </h2>
+  <div class="news-elements">
+    <div *ngFor="let n of newsWithUsername | fromCategory: 'category' : category | sorting : 'timestamp'; let i = index" class="news-element">
+      <div (click)="goToNews(n._id)">
+        <img src="/../../assets/{{n.photo}}">
+      </div>
+      <h3 (click)="goToNews(n._id)">{{n.title}}</h3>
+      <p><span (click)="goToProfile(n.author)">{{n.username}}</span>, {{n.timestamp | date : 'dd. MMM yyyy. HH:mm'}}</p>
+      <p>{{n.summary}}</p>
+    </div>
+  </div>
+</div>

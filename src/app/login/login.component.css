@@ -1,0 +1,66 @@
+* {
+  font-family: myFont2;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+}
+
+input[type=text], input[type=password] {
+  padding: 8px 15px;
+  width: 220px;
+  box-sizing: border-box;
+  background-color: rgba(225, 196, 159, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0);
+  color: darkred;
+  outline: none;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  border-bottom: 2px solid darkred;
+}
+
+label p {
+  margin-bottom: 5px;
+}
+
+form>:nth-child(1) {
+  margin-bottom: 20px;
+}
+
+form>:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+}
+
+#login, #login-valid, #reg {
+  padding: 10px;
+  font-size: 1em;
+  width: 100%;
+  border: 2px solid rgba(225, 196, 159, 0.5);
+  background: none;
+  transition: 0.7s;
+}
+
+#login, #login-valid {
+  margin-right: 10px;
+}
+
+#reg {
+  margin-left: 10px;
+  background-color: rgba(225, 196, 159, 0.5);
+  color: #a86a1d;
+}
+
+#login-valid:hover, #reg:hover {
+  border-color: darkred;
+  cursor: pointer;
+}
+
+.errorInfo {
+  color: darkred;
+  font-size: 14px;
+  font-weight: bold;
+}

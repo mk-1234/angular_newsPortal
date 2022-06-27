@@ -1,0 +1,63 @@
+<h2>{{user.username}}</h2>
+<hr />
+<div *ngIf="adminLoggedIn && onOwnProfile">
+  <h3>Administrator settings</h3>
+  <div *ngFor="let u of users; let i = index">
+    <p>{{u.username}}, level: {{u.level}}</p>
+    <p *ngIf="u.level == 3">User is banned!</p>
+    <button (click)="increaseLevel(u._id)" class="modBtn"> < </button>
+    <button (click)="decreaseLevel(u._id)" class="modBtn"> > </button>
+    <button *ngIf="u.level > 0 && u.level < 3" (click)="banUser(u._id)" class="banBtn">Ban user</button>
+    <button *ngIf="u.level > 0" (click)="deleteUser(u._id)" class="delBtn">Delete user</button>
+  </div>
+  <hr />
+</div>
+
+<div *ngIf="adminLoggedIn && !onOwnProfile">
+  <h3>Administrator settings</h3>
+  <div>
+    <p>{{user.username}}, level: {{user.level}}</p>
+    <p *ngIf="user.level == 3">User is banned!</p>
+    <button (click)="increaseLevel(user._id)" class="modBtn"> < </button>
+    <button (click)="decreaseLevel(user._id)" class="modBtn"> > </button>
+    <button *ngIf="user.level > 0 && user.level < 3" (click)="banUser(user._id)" class="banBtn">Ban user</button>
+    <button *ngIf="user.level > 0" (click)="deleteUser(user._id)" class="delBtn">Delete user</button>
+  </div>
+  <hr />
+</div>
+
+<div *ngIf="onOwnProfile">
+  <h3>User settings</h3>
+  <div>
+    <p>id: {{user._id}}, <br />
+      username: {{user.username}}, <br />
+      firstname: {{user.firstname}}, <br />
+      lastname: {{user.lastname}}, <br />
+      email: {{user.email}}, <br />
+      level: {{user.level}}
+      <span class="banMessage" *ngIf="user.level == 3">--- You are banned from commenting! ---</span>
+    </p>
+
+    <button (click)="selfDeleteUser(user._id)" class="delBtn">Delete your profile</button>
+  </div>
+  <hr />
+</div>
+
+<div *ngIf="articles.length > 0">
+  <h3>{{user.username}} articles:</h3>
+  <div *ngFor="let a of articles; let i = index" class="article">
+    <div (click)="goToNews(a._id)">
+      <img src="/../../assets/{{a.photo}}" />
+    </div>
+    <div class="profile-article">
+      <h3 (click)="goToNews(a._id)">{{a.title}}</h3>
+      <p><span class="category" (click)="goToCategory(a.category)">{{a.category}}</span>, {{a.timestamp | date : 'dd. MMM yyyy. HH:mm'}}</p>
+      <p>{{a.summary}}</p>
+    </div>
+  </div>
+  <hr />
+</div>
+
+<h3 *ngIf="maySeeComments">{{user.username}} comments:</h3>
+
+<app-comments *ngIf="maySeeComments" [user]="user" [inProfile]="true" (commentsNmbEvent)="setCommentsNmb($event)"></app-comments>

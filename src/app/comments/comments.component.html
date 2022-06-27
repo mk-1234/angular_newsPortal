@@ -1,0 +1,37 @@
+<div *ngIf="!userLoggedIn && !inProfile">
+  <p class="smaller-font">>><span class="link-style" [routerLink]="['../login']">Log in</span> to write a comment</p>
+</div>
+<div *ngIf="userLoggedIn && !inProfile">
+  <p *ngIf="!writingComment && !editingComment && user.level < 3" class="smaller-font link-style" (click)="writingComment=true">
+    >> Add new comment
+  </p>
+  <p *ngIf="user.level == 3" class="banMessage">You are banned from commenting!</p>
+</div>
+
+<div class="comment-area" *ngIf="writingComment">
+  <textarea [(ngModel)]="newComment.comment" placeholder="Write your comment here"></textarea><br />
+  <button *ngIf="newComment.comment == ''" id="submit" [ngStyle]="setClass()">Submit</button>
+  <button *ngIf="newComment.comment != ''" id="submit-valid" (click)="addComment()" [ngStyle]="setClass()">Submit</button>
+  <button id="cancel" (click)="endWriting()">Cancel</button>
+</div>
+
+<div class="comment-area for-flex" *ngFor="let c of articleComments; let i = index">
+  <div *ngIf="editIndex != c._id">
+    <p><span [routerLink]="['../profile', c._idUser]">{{c.username}}</span>, {{c.timestamp | date : 'dd. MMM yyyy. HH:mm'}}</p>
+    <p>{{c.comment}}</p>
+  </div>
+  <div *ngIf="editIndex == c._id" class="textarea-editing">
+    <textarea [(ngModel)]="comment"></textarea>
+  </div>
+  <div *ngIf="user._id == c._idUser && !writingComment && mayEdit" class="flex-align-middle">
+    <div *ngIf="!editingComment" class="buttons">
+      <button id="edit" (click)="startEdit(c._id)">Edit</button>
+      <button id="delete" (click)="delete(c._id)">Delete</button>
+    </div>
+    <div *ngIf="editingComment" class="buttons">
+      <button id="update" (click)="doneEdit(c._id)">Update</button>
+      <button id="cancel-edit" (click)="cancelEdit()">Cancel</button>
+    </div>
+
+  </div>
+</div>

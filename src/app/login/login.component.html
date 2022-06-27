@@ -1,0 +1,20 @@
+<h2>Login</h2>
+<form [formGroup]="loginForm" (submit)="onLogin()">
+  <div>
+    <label for="username">
+      <p>Username</p>
+      <input type="text" id="username" formControlName="username" placeholder="Your username" />
+    </label>
+    <label for="password">
+      <p>Password</p>
+      <input type="password" id="password" formControlName="password" placeholder="Your password" />
+    </label><br />
+    <p *ngIf="errorMsg" class="errorInfo">{{errorMsg}}</p>
+  </div>
+  <div>
+    <input *ngIf="!loginForm.valid" id="login" type="submit" value="Login" [disabled] [ngStyle]="setClass()" />
+    <input *ngIf="loginForm.valid" id="login-valid" type="submit" value="Login" [ngStyle]="setClass()" />
+
+    <button id="reg" [routerLink]="['../register']">Register</button>
+  </div>
+</form>

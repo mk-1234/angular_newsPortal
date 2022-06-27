@@ -1,0 +1,47 @@
+@font-face {
+  font-family: myFont;
+  src: url("src/assets/walbaum-fraktur/walbaum-fraktur.ttf");
+}
+
+@font-face {
+  font-family: myFont2;
+  src: url("src/assets/oldnewspapertypes/oldnewspapertypes.ttf");
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  margin: 0 auto;
+  background-image: url("src/assets/old-paper2.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  padding: 0 10%;
+}
+
+footer {
+  color: darkred;
+  height: 180px;
+}
+
+hr {
+  border-color: darkred;
+  margin-top: 40px;
+}
+
+#author, #mail {
+  color: darkred;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#author {
+  padding-top: 50px;
+}
+
+#mail {
+  padding-bottom: 50px;
+}

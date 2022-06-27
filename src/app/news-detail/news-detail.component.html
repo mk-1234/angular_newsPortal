@@ -1,0 +1,61 @@
+<div *ngIf="!writingArticle">
+  <img src="/../../assets/{{currentNews.photo}}">
+  <h1>{{currentNews.title}}</h1>
+  <div>
+    <p>
+      <span class="link-style" [routerLink]="['../profile', currentNews.author]">
+        {{currentNewsWithUsername.username}}</span>,
+      {{currentNews.timestamp | date : 'dd. MMM yyyy. HH:mm'}}
+      <span *ngIf="writerLoggedIn && mayWrite">|
+        <span (click)="startEdit()" class="edit">>> Edit article</span> |
+        <span (click)="delete()" class="delete">>> Delete article</span>
+      </span>
+    </p>
+    <p class="link-style" [routerLink]="['../category', currentNews.category]">{{currentNews.category}}</p>
+  </div>
+  <p>{{currentNews.article}}</p>
+  <app-comments [_idNews]="currentNews._id" [user]="user"></app-comments>
+</div>
+
+<div *ngIf="writingArticle">
+  <h2>Article form</h2>
+  <form [formGroup]="articleForm" (submit)="onSubmit()">
+    <label for="title">
+      <p>Title</p>
+      <input type="text" id="title" formControlName="title" placeholder="Enter the title of the article" />
+    </label>
+
+    <p>Select category</p>
+    <label for="category">
+      <select id="category" formControlName="category">
+        <option name="domestic" value="Domestic" [selected]="currentNews.category=='Domestic'">Domestic</option>
+        <option name="international" value="International" [selected]="currentNews.category=='International'">International</option>
+        <option name="entertainment" value="Entertainment" [selected]="currentNews.category=='Entertainment'">Entertainment</option>
+        <option name="sport" value="Sport" [selected]="currentNews.category=='Sport'">Sport</option>
+      </select>
+    </label>
+
+    <label for="photo">
+      <p>Photo</p>
+      <input type="file" id="photo" formControlName="photo" placeholder="Add photo" />
+    </label> ---> Default picture will be used if none is selected!
+
+    <label for="summary">
+      <p>Summary</p>
+      <input type="text" id="summary" formControlName="summary" placeholder="Enter article summary" />
+    </label>
+
+    <label for="article">
+      <p>Article</p>
+      <textarea id="article" formControlName="article" placeholder="Write your article here"></textarea>
+    </label>
+
+    <br />
+    <input type="button" value="Cancel" (click)="cancelEdit()" />
+    <input *ngIf="!articleForm.valid" id="add" type="submit" value="Fix your article!" [disabled]="true" [ngStyle]="setClass()" />
+    <input *ngIf="articleForm.valid" id="add-valid" type="submit" value="Submit your article!" [ngStyle]="setClass()" />
+    <br />
+  </form>
+</div>
+
+
